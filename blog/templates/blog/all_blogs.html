@@ -1,0 +1,17 @@
+
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
+<h1>Hicham has Written {{all_blogs.count}} blog{{all_blogs|pluralize}} </h1>
+
+{% for blog in all_blogs %}
+
+<a href="{% url 'detail' blog.id %}"><h1>{{blog.title}}</h1></a>
+<h3>{{blog.description}}</h3>
+<p>{{blog.content|truncatechars:450}}</p>
+<h5>{{blog.date_posted|date:'D M Y'}}</h5>
+
+{% endfor %}
+
+{% endblock %}
